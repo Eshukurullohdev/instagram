@@ -1,0 +1,74 @@
+
+
+{% load static %}
+
+<nav class="nav1">
+    <div class="nav_wrapper container">
+        <nav>
+    
+            <i class="nav" style="background-image: url({%static 'img/insta.png'%});"></i>
+        </nav>
+        <div class="nav_left">
+            <a class="nav_left_1" href="{% url 'login' %}">Log In</a>
+            <a class="nav_left_2" href="{% url 'register' %}">Sign up</a>
+        </div>
+    
+    </div>
+</nav>
+<style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    max-width: 1300px;
+    margin-left: auto;
+margin-right: auto;
+}
+.nav_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    
+}
+.nav1 {
+    width: 100%;
+    border-bottom: 1px solid rgb(201, 196, 196);
+
+}
+
+.nav {
+    background-position: 0px -52px;
+    background-size: auto;
+    width: 175px;
+    height: 51px;
+    background-repeat: no-repeat;
+    display: inline-block;
+  
+}
+
+.nav_left_1 {
+    background-color: #0095fb;
+    padding: 6px 16px;
+    border: none;
+    text-decoration: none;
+    width: 71px;
+    height: 34px;
+    border-radius: 8px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.nav_left_2 {
+    color: #0095fb;
+    padding: 6px 16px;
+    border: none;
+    text-decoration: none;
+    width: 71px;
+    height: 34px;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+</style>

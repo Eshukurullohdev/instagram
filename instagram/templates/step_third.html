@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    html {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .step_third {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .fa-facebook {
+        font-size: 65px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+    .step_third_span_first {
+        color: #737373;
+    }
+    button {
+        margin-top: 65px;
+    }
+    a {
+        text-decoration: none;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="step_third">
+    <i class="fa-brands fa-facebook"></i>
+    <h1>Connect to Facebook</h1>
+    <span class="step_third_span_first">Lorem ipsum dolor sit amet <br> consectetur adipisicing elit. Aut <br> dolor ipsa dolore ipsum, quaerat minima eltg ?</span>
+    <button>Login to facebook</button>
+    <a href="?third_step_complete=True">Skip</a>
+</div>
+{% endblock %}

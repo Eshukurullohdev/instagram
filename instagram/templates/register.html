@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- <link rel="stylesheet" href="{% static 'css/register.css'%}"> -->
+<div class="wrapper">
+    <div class="container1">
+        <div class="form-container">
+
+            <i class="i" style="background-image: url({% static 'img/insta.png'%});"></i>
+            <p class="to_see">Sign up to see photos and videos <br> from your friends.</p>
+            <button style="padding: 8px 15px; margin-bottom: 15px; font-size: 14px;" type="submit">Log in with
+                Facebook</button>
+
+            <div class="line_wrap">
+                <hr class="line">
+                <p>OR</p>
+                <hr class="line">
+
+
+            </div>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" id="username" name="username" placeholder="Username or email" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="fullName" placeholder="fullName" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <p class="people">Who use our service may have uploaded <br> your to Instagram <a
+                        href="{% url 'login'%}">Learn More</a></p>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        <a class="password" href="{% url 'forget_password' %}">forget password</a>
+    </div>
+    <div class="container1" style="width: 100%; height: 80px !important; padding: 0 !important; text-align: center;">
+        <p class="login-link">Don't have an account? <a href="{% url 'register'%}">Sign up</a></p>
+
+    </div>
+    <h3 style="font-size: 15px; font-weight: 400;">Get the app.</h3>
+    <div class="bottom-img">
+
+        <a href="#"> <img src="{% static 'img/play.png'%}" alt=""></a>
+        <a href="#">
+            <img src="{% static 'img/micr.png'%}" alt="">
+
+        </a>
+    </div>
+    <div class="ul-li-wrap">
+        <ul>
+            <li><a href="https://about.meta.com/">Meta</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Instagram Lite</a></li>
+            <li><a href="#">Threads</a></li>
+            <li><a href="#">Contact Uploading & Non-Users</a></li>
+            <li><a href="#">Meta Verified</a></li>
+
+        </ul>
+    </div>
+    <div class="wrap-bottom">
+        <select>
+            <option value="af">Uzbekistan</option>
+            <option value="ar">العربية</option>
+            <option value="cs">Čeština</option>
+            <option value="da">Dansk</option>
+            <option value="de">Deutsch</option>
+            <option value="el">Ελληνικά</option>
+            <option value="en">English</option>
+            <option value="en-gb">English (UK)</option>
+            <option value="es">Español (España)</option>
+            <option value="es-la">Español</option>
+            <option value="fa">فارسی</option>
+            <option value="fi">Suomi</option>
+            <option value="fr">Français</option>
+            <option value="he">עברית</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="it">Italiano</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="nb">Norsk</option>
+            <option value="nl">Nederlands</option>
+            <option value="pl">Polski</option>
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="pt">Português (Portugal)</option>
+            <option value="ru">Русский</option>
+            <option value="sv">Svenska</option>
+            <option value="th">ภาษาไทย</option>
+            <option value="tl">Filipino</option>
+            <option value="tr">Türkçe</option>
+            <option value="zh-cn">中文(简体)</option>
+            <option value="zh-tw">中文(台灣)</option>
+            <option value="bn">বাংলা</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="hi">हिन्दी</option>
+            <option value="hr">Hrvatski</option>
+            <option value="hu">Magyar</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="ne">नेपाली</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="si">සිංහල</option>
+            <option value="sk">Slovenčina</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ur">اردو</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="zh-hk">中文(香港)</option>
+            <option value="bg">Български</option>
+            <option value="fr-ca">Français (Canada)</option>
+            <option value="ro">Română</option>
+            <option value="sr">Српски</option>
+            <option value="uk">Українська</option>
+        </select>
+        <p>© 2024 Instagram from Meta</p>
+    </div>
+</div>
+
+<script src="register.js"></script>
+
+<script>
+    // register.js
+
+    document.getElementById('registerForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Formani yuborishni to‘xtatadi
+
+        // Foydalanuvchi ma'lumotlarini olish
+        const email = document.getElementById('email').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Ma'lumotlarni serverga yuborish
+        fetch('https://your-api-endpoint.com/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                username: username,
+                password: password
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Ro‘yxatdan o‘tish muvaffaqiyatli amalga oshirildi!');
+                } else {
+                    alert('Ro‘yxatdan o‘tishda xato yuz berdi: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Xato:', error);
+            });
+    });
+
+</script>
+
+{% endblock %}

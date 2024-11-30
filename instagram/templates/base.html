@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/register.css'%}">
+    <link rel="stylesheet" href="{% static 'css/media.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+</head>
+<style>
+    body {
+        font-family: "Poppins", sans-serif !important;
+    }
+</style>
+
+<body>
+    <!-- {% include 'nav.html' %} -->
+    <div class="wrapper_second">
+         <!-- Sidebar -->
+        <div class="wrapper_second_left">
+
+            <div class="insta_logo" style="background-image: url({% static 'img/insta.png' %})"></div>
+            <div class="wrapper_second_mini">
+                <i class="fa-solid fa-home"></i>
+                <span>home</span>
+            </div>
+            <div class="wrapper_second_mini">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>search</span>
+            </div>
+            <div class="wrapper_second_mini">
+                <i class="fa-regular fa-compass"></i>
+                <span>compass</span>
+            </div>
+            <div class="wrapper_second_mini">
+                <i class="fa-solid fa-clapperboard"></i>
+                <span>explore</span>
+            </div>
+            <a href="/reels/{{ reel.unique_id }}/" class="wrapper_second_mini">
+                <i class="fa-brands fa-facebook-messenger"></i>
+                <span>reels</span>
+            </a>
+            <div class="wrapper_second_mini">
+                <i class="fa-regular fa-heart"></i>
+                <span>message</span>
+            </div>
+            <div class="wrapper_second_mini">
+                <i class="fa-regular fa-square-plus"></i>
+                <span>Notifications</span>
+            </div>
+            <div class="wrapper_second_mini">
+                <i class="fa-regular fa-circle-user"></i>
+                <span>Create</span>
+            </div>
+            <div class="wrapper_second_mini">
+                <i class="fa-brands fa-threads"></i>
+                <span>
+                    <a style="text-decoration: none; color: #fff;" href="{% url 'profile' request.user.username %}">
+                        Profile
+                    </a>
+                </span>
+            </div>
+
+
+            <div style="margin-top: 250px;" class="wrapper_second_bottom">
+                <div class="wrapper_second_mini">
+                    <i class="fa-brands fa-threads"></i>
+                    <span>tfrats</span>
+                </div>
+                <div class="wrapper_second_mini">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>more</span>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar -->
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

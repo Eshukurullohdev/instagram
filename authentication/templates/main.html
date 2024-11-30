@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div style="display: flex; margin: 0 auto; gap: 30px;">
+    <!-- orta -->
+    <div class="wrapper_second_middle">
+         
+            <div class="middle_nav">
+                {% if my_story %}
+                <a href="{% url 'story_detail' my_story.user.username %}">
+                    <div class="middle_nav_mini">
+                        <div style="background-image: url({{ my_story.user.profile.avatar.url }});"></div>
+                    </div>
+                    <span class="nav_for_span">{{ my_story.user.username }}</span>
+                </a>
+                {% else %}
+                <a href="/story/create-story/" style="cursor: pointer; position: relative;">
+                    <div class="middle_nav_mini" style="background: none;">
+                        <div style="background-image: url({{ request.user.profile.avatar.url }});"></div>
+                    </div>
+                    <i class="fa-solid fa-plus" style="position: absolute; right: 0px; bottom: 15px; font-size: 17px; width: 20px; height: 20px;
+                     background-color: #0078D7; display: flex; justify-content: center; align-items: center; border-radius: 50%;"></i>
+                    <span class="nav_for_span">{{ request.user.username }}</span>
+                </a>
+                {% endif %}
+                {% for story in stories %}
+                <a href="{% url 'story_detail' story.user.username %}">
+                    <div class="middle_nav_mini">
+                        <div style="background-image: url({{ story.user.profile.avatar.url }});"></div>
+                    </div>
+                    <span class="nav_for_span">{{ story.user.username }}</span>
+                </a>
+                {% endfor %}
+            </div>
+
+            {% for post, is_like in posts %}
+            <div class="middle_main">
+                <div class="strange">
+                    <div class="middle_main_small">
+                        <div style="background-image: url({{ post.user.profile.avatar.url }}); background-repeat: no-repeat; background-size: cover; background-position: center;"
+                            class="middle_nav_mini">
+                        </div>
+                        <div class="middle_nav_mini_2">
+                            <span> {{ post.user.username }} </span> <span class=""> 🎇15th</span> <br>
+                            <span>{{ post.user.fullName }}</span>
+                        </div>
+                    </div>
+
+                    <i class="fa-solid fa-home"></i>
+                </div>
+
+
+                <div class="face" style="background-image: url({{ post.image.url }});"></div>
+
+                <div class="all_opinium">
+                    <div class="all_opinium_main">
+                        <style>
+                            .all_opinium_main a {
+                                color: #fff;
+                                font-size: 25px;
+                            }
+                        </style>
+                        <div>
+                            <a href="/like/add-like/{{ post.id }}/">
+                                {% if is_like %}
+                                <i class="fa-solid fa-heart" style="color: red;"></i>
+                                {% else %}
+                                <i class="fa-regular fa-heart"></i>
+                                {% endif %}
+                            </a>
+                            <a href="#">
+                                <i style="margin-left: 15px;" class="fa-solid  fa-message"></i>
+                            </a>
+                            <a href="#">
+                                <i style="margin-left: 15px;" class="fa-solid  fa-paper-plane"></i>
+                            </a>
+                        </div>
+                        <i class="fa-solid  fa-home"></i>
+                    </div>
+                </div>
+
+                <div class="people_saw">
+                    <div style="width: 20px; height: 20px; background-color: white; border-radius: 50%;">
+
+                    </div>
+                    <span style="margin-left: 5px;">51,77</span>
+                    <span style="margin-left: 5px;">likes</span>
+                </div>
+
+                <span style="margin-top: 5px; display: inline-block; width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><b style="font-weight: bold;">{{ post.user.username }}</b> {{ post.text }}</span>
+                <br>
+                <span style="margin-top: 5px; display: inline-block;">see translation</span> <br>
+                <span style="margin-top: 5px; display: inline-block;">viewv see all 870 comments</span>
+
+                <div class="add_comment">
+                    <span>add comment</span>
+                    🙂
+                </div>
+
+
+
+            </div>
+            {% endfor %}
+
+
+        </div>
+        <!-- orta -->
+
+        <!-- ong -->
+        <div class="wrapper_second_right">
+            <div class="right_main">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div class="right_main_mini">
+                        <div style="background-image: url(https://images.pexels.com/photos/598917/pexels-photo-598917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat; background-size: cover; background-position: center;"
+                            class="middle_nav_mini">
+                        </div>
+                        <div style="margin-left: 10px;">
+                            <span>jen li</span> <br>
+                            <span>jein</span>
+                        </div>
+                    </div>
+                    <span>
+                        <a style="text-decoration: none;" href="#">Follow</a>
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 15px;">
+                    <span>Suggested for you</span>
+                    <span>all see</span>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div class="right_main_mini">
+                        <div style="background-image: url(https://images.pexels.com/photos/103123/pexels-photo-103123.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat; background-size: cover; background-position: center;"
+                            class="middle_nav_mini">
+                        </div>
+                        <div style="margin-left: 10px;">
+                            <span>jen li</span> <br>
+                            <span>jein</span>
+                        </div>
+                    </div>
+                    <span>
+                        <a style="text-decoration: none;" href="#">Follow</a>
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div class="right_main_mini">
+                        <div style="background-image: url(https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat; background-size: cover; background-position: center;"
+                            class="middle_nav_mini">
+                        </div>
+                        <div style="margin-left: 10px;">
+                            <span>jen li</span> <br>
+                            <span>jein</span>
+                        </div>
+                    </div>
+                    <span>
+                        <a style="text-decoration: none;" href="#">Follow</a>
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div class="right_main_mini">
+                        <div style="background-image: url(https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat; background-size: cover; background-position: center;"
+                            class="middle_nav_mini">
+                        </div>
+                        <div style="margin-left: 10px;">
+                            <span>jen li</span> <br>
+                            <span>jein</span>
+                        </div>
+                    </div>
+                    <span>
+                        <a style="text-decoration: none;" href="#">Follow</a>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        <!-- ong -->
+</div>
+{% endblock %}

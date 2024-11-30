@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/notification.css' %}" />
+
+<div class="notification">
+    {% for user in request %}
+  <div class="user">
+    <div class="avatar" style="background-image: url({{ user.user.profile.avatar.url }});"></div>
+    <span>
+        <p>{{ user.user.username }} started to following you. 2w</p>
+    </span>
+    {% if user.state == False %}
+    <a href="#">Following</a>
+    {% else %}
+    <a href="/authentication/add-to-friend/{{ user.user.id }}/{{ user.id}}">Follow</a>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

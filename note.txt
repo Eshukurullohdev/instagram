@@ -1,0 +1,9 @@
+1.git init -- bir papka uchun bir marta
+
+2.git add . -- har bitta o'zgarish uchun
+3.git commit -m 'nimadur' -- o'zgarich nima haqidaligi
+
+4.git branch -M main -- har bir loyiha uchun bir marta
+5.git remote add origin https://github.com/hwandev12/instagram-app-clone.git
+
+6.git push -u origin main

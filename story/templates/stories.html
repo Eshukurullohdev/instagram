@@ -1,0 +1,112 @@
+<section class="stories container">
+  {% for story_user, extension in all_stories %} 
+  {% if story_user.user.username == story.user.username %}
+  <span class="file_e" style="display: none;">{{ file_extension }}</span>
+  {% if file_extension == 'rasm' %}
+  <div
+    style="background-image: url({{ story_user.resource.url }});"
+    class="story {% if story.user.username == story_user.user.username %}activeStory{% endif %}"
+  >
+    <span class="loader"></span>
+    <div class="progress-bar-wrapper">
+      {% for x in total_story_count %}
+      <div class="progress-bar">
+        <span></span>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="story__play__nav">
+      <div>
+        <span style="background-image: url({{ story_user.user.profile.avatar.url }});"></span>
+        <p>{{ story_user.user.username }}</p>
+        <p style="color: rgba(255, 255, 255, 0.7)">20h</p>
+      </div>
+      <div>
+        <i class="fa-solid fa-volume-xmark volume"></i>
+        <i class="fa-solid fa-pause pause"></i>
+        <i class="fa-solid fa-ellipsis"></i>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div
+    class="story {% if story.user.username == story_user.user.username %}activeStory{% endif %}"
+  >
+  <span class="file_extension" style="display: none;">{{ file_extension }}</span>
+  <video autoplay muted>
+    <source src="{{ story_user.resource.url }}">
+  </video>
+    <span class="loader"></span>
+    <div class="progress-bar-wrapper">
+      {% for x in total_story_count %}
+      <div class="progress-bar">
+        <span></span>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="story__play__nav">
+      <div>
+        <span style="background-image: url({{ story_user.user.profile.avatar.url }});"></span>
+        <p>{{ story_user.user.username }}</p>
+        <p style="color: rgba(255, 255, 255, 0.7)">20h</p>
+      </div>
+      <div>
+        <i class="fa-solid fa-volume-xmark volume"></i>
+        <i class="fa-solid fa-pause pause"></i>
+        <i class="fa-solid fa-ellipsis"></i>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% else %}
+  {% if extension == 'jpg' %}
+  <a
+    href="/story/detail/{{ story_user.user.username }}/"
+    style="background-image: url({{ story_user.resource.url }}); text-decoration: none;"
+    class="story {% if story.user.username == story_user.user.username %}activeStory{% endif %}"
+  >
+    <span class="loader"></span>
+    <div class="story_circle_wrapper">
+      <div class="story_circle">
+        <div
+          style="background-image: url({{ story_user.user.profile.avatar.url }});"
+        ></div>
+      </div>
+      <span>{{ story_user.user.username }}</span>
+      <span>{{ story_user.qolgan_vaqtni_topish }}</span>
+    </div>
+  </a>
+  {% else %}
+  <a href="/story/detail/{{ story_user.user.username }}/"
+    class="story {% if story.user.username == story_user.user.username %}activeStory{% endif %}"
+  >
+  <span class="file_extension" style="display: none;">{{ file_extension }}</span>
+  <video muted>
+    <source src="{{ story_user.resource.url }}">
+  </video>
+    <span class="loader"></span>
+    <div class="story_circle_wrapper video_circle_wrapper">
+      <div class="story_circle">
+        <div
+          style="background-image: url({{ story_user.user.profile.avatar.url }});"
+        ></div>
+      </div>
+      <span>{{ story_user.user.username }}</span>
+      <span>{{ story_user.qolgan_vaqtni_topish }}</span>
+    </div>
+  </a>
+  {% endif %}
+  {% endif %} 
+  {% endfor %}
+  <div>
+    {% for s in right_stories %}
+    <span class="right_story_name" style="display: none"
+      >{{ s.user.username }}</span
+    >
+    {% endfor %}
+  </div>
+  <div class="absolute left-0 bottom-0 m-7 flex gap-3">
+    <button class="border-2 border-slate-300 px-3 py-1 text-white">Live</button>
+    <a href="{% url 'create_story_with_image' %}" class="border-2 border-cyan-500 bg-cyan-500 text-white px-6 py-1" type="submit">Create Story</a>
+</div>
+</section>

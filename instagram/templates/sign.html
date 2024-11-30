@@ -1,0 +1,275 @@
+
+{% load static %}
+<div class="instagram">
+    <i class="i" style="background-image: url({% static 'img/insta.png' %});"></i>
+    <input class="input" type="text" placeholder="Phone number, username, or email" required>
+    <input type="text" placeholder="Password" required>
+    <button class="login">Log in</button>
+    <div class="line_wrap">
+        <hr class="line">
+        <p>OR</p>
+        <hr class="line">
+    
+    
+    </div>
+    <div class="facebok">
+        <i class="fa-brands fa-square-facebook"></i> 
+        <span>Log in with Facebook</span>
+    </div>
+    <span class="forgot">Forgot password?</span>
+
+
+    <div class="page_2">
+        <p>Don't have an account?</p>
+        <a href="{% url 'register' %}">Sign up</a>
+    </div>
+
+    <span class="get">Get the app.</span>
+    <div class="market">
+        <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" alt="play">
+        <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" alt="market">
+    </div>
+    <footer class="Sign_up_bottom_footer">
+        <a href="#">Meta</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Jobs</a>
+        <a href="#">Help</a>
+        <a href="#">API</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Locations</a>
+        <a href="#">Instagram</a>
+        <a href="#">Threads</a>
+        <a href="#">Contact </a>
+        <a href="#">Non</a>
+        <a href="#">Meta</a>
+    </footer>
+    <div class="wrap-bottom">
+        <select ><option value="af">Uzbekistan</option><option value="ar">العربية</option><option value="cs">Čeština</option><option value="da">Dansk</option><option value="de">Deutsch</option><option value="el">Ελληνικά</option><option value="en">English</option><option value="en-gb">English (UK)</option><option value="es">Español (España)</option><option value="es-la">Español</option><option value="fa">فارسی</option><option value="fi">Suomi</option><option value="fr">Français</option><option value="he">עברית</option><option value="id">Bahasa Indonesia</option><option value="it">Italiano</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="ms">Bahasa Melayu</option><option value="nb">Norsk</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="pt-br">Português (Brasil)</option><option value="pt">Português (Portugal)</option><option value="ru">Русский</option><option value="sv">Svenska</option><option value="th">ภาษาไทย</option><option value="tl">Filipino</option><option value="tr">Türkçe</option><option value="zh-cn">中文(简体)</option><option value="zh-tw">中文(台灣)</option><option value="bn">বাংলা</option><option value="gu">ગુજરાતી</option><option value="hi">हिन्दी</option><option value="hr">Hrvatski</option><option value="hu">Magyar</option><option value="kn">ಕನ್ನಡ</option><option value="ml">മലയാളം</option><option value="mr">मराठी</option><option value="ne">नेपाली</option><option value="pa">ਪੰਜਾਬੀ</option><option value="si">සිංහල</option><option value="sk">Slovenčina</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option><option value="ur">اردو</option><option value="vi">Tiếng Việt</option><option value="zh-hk">中文(香港)</option><option value="bg">Български</option><option value="fr-ca">Français (Canada)</option><option value="ro">Română</option><option value="sr">Српски</option><option value="uk">Українська</option></select>
+        <p>© 2024 Instagram from Meta</p>
+    </div>
+
+</div>
+<style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.instagram {
+    width: 350px;
+    height: 407px;
+    padding: 10px 0;
+    margin: 0 0 10px;
+    text-align: center;
+    border: 1px solid gainsboro;
+}
+
+.i {
+    background-position: 0px -52px;
+    background-size: auto;
+    width: 175px;
+    height: 51px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-top: 52px;
+    margin-bottom: -20px;
+}
+.line_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    border-color: gainsboro !important;
+    margin-top: 15px;
+ 
+}
+.line {
+    width: 100px;
+}
+
+.wrap-bottom select {
+    border: none;
+    background-color: transparent;
+    max-width: 90px;
+    color: #7a7d82;
+
+    
+}
+.wrap-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.wrap-bottom p {
+    color: #7a7d82;
+    font-size: 13px;
+
+}
+.input {
+    width: 258px;
+    height: 36px;
+    padding: 9px 0 7px 8px;
+    outline: none;
+    margin-top: 50px;
+}
+
+input {
+    width: 258px;
+    height: 36px;
+    padding: 9px 0 7px 8px;
+    border: 1px solid rgb(201, 196, 196);
+
+    outline: none;
+    margin-top: 10px;
+}
+
+.login {
+    width: 268px;
+    background-color: #418be4;
+    padding: 7px 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 12px;
+    color: white;
+}
+
+.hr {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color: #dbdbdb;
+}
+
+.hr p {
+    color: #737373;
+    text-transform: uppercase;
+    margin-left: 11px;
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+
+.fa-square-facebook {
+    color: #385185;
+}
+
+.facebok {
+    margin-top: 20px;
+}
+
+.facebok span {
+    color: #385185;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.forgot {
+    color: #385898;
+    cursor: pointer;
+    font-family: sans-serif;
+    padding-top: 20px;
+    display: inline-block;
+    font-size: 13px;
+}
+
+.page_2 {
+    width: 348px;
+    height: 62px;
+    border: 1px solid gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+   margin-top: 60px !important;
+   gap: 6px;
+}
+
+.page_2 a {
+    color: #0095f6;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.get {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.market img:nth-child(1) {
+    width: 134px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.market img:nth-child(2) {
+    width: 110px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.market {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.load_footer a {
+    margin-left: 10px;
+}
+
+.Sign_up_bottom_footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Sign_up_bottom_footer a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #737373;
+    font-family: sans-serif;
+    font-size: 12px;
+    margin-top: 70px;
+}
+
+.Sign_up_bottom_footer a:hover {
+    border-bottom: 1px solid black;
+}
+
+.select {
+    margin-top: 20px;
+}
+
+.select select {
+    border: none;
+    color: #737373;
+}
+
+.select span {
+    color: #737373;
+    font-size: 12px;
+}
+</style>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .nav_img {
+        position: relative;
+        bottom: 10px;
+        background-position: 5% 50%;
+        background-size: auto;
+        width: 175px;
+        height: 51px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin-top: 1px;
+        margin-bottom: -23px;
+        margin-right: -113px;
+
+    }
+
+    nav {
+        position: fixed;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        -webkit-box-shadow: 3px 9px 11px -10px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: 3px 9px 11px -10px rgba(34, 60, 80, 0.2);
+        box-shadow: 3px 9px 11px -10px rgba(34, 60, 80, 0.2);
+    }
+
+    .nav_mini input {
+        width: 278px;
+        height: 39px;
+        padding-left: 35px;
+        background-color: #f0f2f5;
+        border: none;
+        border-radius: 18px;
+        margin-right: 20px;
+        outline: none;
+        color: #f0f2f5;
+    }
+
+    .nav_span_2 {
+        font-size: 17px;
+        color: #0095f6;
+        font-family: sans-serif;
+        font-weight: 600;
+        margin-right: 10px;
+    }
+
+    .fa-search {
+        position: relative;
+        left: 30px;
+        color: #737373;
+        /* color: rgb(215, 216, 218); */
+    }
+
+    .nav_span {
+        font-size: 17px;
+        color: #262626;
+        font-family: sans-serif;
+        position: relative;
+        bottom: 10px;
+    }
+
+    .help_main_left {
+        margin-top: 60px;
+        position: fixed;
+        width: 360px;
+        height: 100vh;
+        -webkit-box-shadow: 12px 9px 0px -11px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: 12px 9px 0px -11px rgba(34, 60, 80, 0.2);
+        box-shadow: 12px 9px 0px -11px rgba(34, 60, 80, 0.2);
+    }
+
+    .help_main_left_1 {
+        display: flex;
+        margin-top: -6px;
+        padding: 20px;
+    }
+
+    .help_main_left_1 span {
+        font-size: 17px;
+        font-family: sans-serif;
+        color: #262626;
+        letter-spacing: 1px;
+        margin-left: -11px;
+        margin-top: 3px;
+        display: inline-block;
+    }
+
+    .fa-user,
+    .fa-dice-d20,
+    .fa-lock,
+    .fa-boxes-stacked,
+    .fa-threads {
+        font-size: 24px;
+    }
+
+    .help_main {
+        display: flex;
+        width: 100%;
+        height: 1358px;
+
+    }
+
+    .help_main_right {
+        width: 100%;
+        position: relative;
+        top: 80px;
+        left: 550px;
+    }
+
+    .help_main_right_first {
+        width: 100%;
+    }
+
+    .help_main_1 {
+        font-size: 12px;
+        color: #0095f6;
+        text-decoration: none;
+        font-family: sans-serif;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+
+    .help_main_2 {
+        font-size: 24px;
+        color: #262626;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+
+    b {
+        font-size: 17px;
+        color: #262626;
+        font-family: sans-serif;
+        font-weight: normal;
+        margin-bottom: 100px;
+        display: inline-block;
+    }
+
+    b a {
+        text-decoration: none;
+        font-size: 17px;
+        color: #0095f6;
+        font-family: sans-serif;
+        font-weight: normal;
+    }
+
+    .help_main_3 {
+        font-size: 20px;
+        margin-top: 50px;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: 15px;
+        display: inline-block;
+        color: #262626;
+    }
+
+    .help_main_4 {
+        font-size: 17px;
+        color: #262626;
+        font-family: sans-serif;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .help_main_5 {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: 20px;
+        padding-top: 100px;
+        display: inline-block;
+        color: #262626;
+    }
+
+    .help_end_span {
+        margin-left: 182px;
+        color: #8e8e8e;
+        font-size: 15px;
+        font-family: sans-serif;
+    }
+
+    .help_img {
+        position: relative;
+        bottom: 10px;
+        left: -77px;
+        background-position: 5% 50%;
+        background-size: auto;
+        width: 300px;
+        height: 51px;
+        background-repeat: no-repeat;
+        display: inline-block;
+    }
+
+    .help_main_8 {
+        margin-top: 60px;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: 15px;
+        display: inline-block;
+        color: #262626;
+    }
+    .help_main_9 {
+        margin-top: 60px;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: 15px;
+        display: inline-block;
+        color: #262626;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="nav_main">
+            <i class="nav_img" style="background-image: url({% static 'img/nav_img.png'%});"></i>
+            <span class="nav_span">Help Center</span>
+        </div>
+        <div class="nav_mini">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" placeholder="Search help articles..">
+            <span class="nav_span_2">English(US)</span>
+        </div>
+    </nav>
+    <div class="help_main">
+        <div class="help_main_left">
+            <div class="help_main_left_1">
+                <i data-visualcompletion="css-img" class="x1b0d499 xep6ejk" aria-hidden="true"
+                    style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -3526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block;"></i>
+
+                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                    style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: 274px; "></i>
+                <span>Instagram Features</span>
+            </div>
+
+            <div class="help_main_left_1">
+                <i class="fa-regular fa-user"></i>
+
+                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                    style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: 274px; "></i>
+                <span>Manage Your Account</span>
+            </div>
+            <div class="help_main_left_1">
+                <i class="fa-solid fa-dice-d20"></i>
+
+                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                    style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: 274px; "></i>
+                <span>Staying Safe</span>
+            </div>
+            <div class="help_main_left_1">
+                <i class="fa-solid fa-lock"></i>
+
+                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                    style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: 274px; "></i>
+                <span>Privacy, Security</span>
+            </div>
+            <div class="help_main_left_1">
+                <i class="fa-solid fa-boxes-stacked"></i>
+
+                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                    style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: 274px; "></i>
+                <span>Terms and Policies</span>
+            </div>
+            <div class="help_main_left_1">
+
+                <i class="fa-brands fa-threads"></i>
+                <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                    style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: 274px; "></i>
+                <span>Threads</span>
+            </div>
+
+
+        </div>
+        <div class="help_main_extra">
+            <div class="help_main_right">
+                <div class="help_main_right_first">
+                    <a class="help_main_1" href="#">Privacy, Security and Reporting</a>
+                    <i data-visualcompletion="css-img" class="x1b0d499 xep6ejk"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: -21px -5076px; background-size: auto; width: 8px; height: 8px; background-repeat: no-repeat; display: inline-block;"></i>
+                    <a class="help_main_1" href="#">Login and Passwords</a>
+
+                </div>
+                <span class="help_main_2">I Can't Log In</span>
+                <hr style="width: 677px; background-color: #737373; margin-bottom: 20px;" class="help_hr">
+                <b>If you're having trouble logging into your Instagram account, you can learn how to do things like
+                    <br> <a href="#">recover your Instagram password</a>, confirm <a href="#">your account has been <br>
+                        disabled.</a></b> <br>
+
+                <span class="help_main_3">Username and Password Troubleshooting</span>
+
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">Recover your
+                        Instagram password</span> <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1"
+                        aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">What to do if you
+                        forget your Instagram username</span> <i data-visualcompletion="css-img"
+                        class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">Links in password
+                        reset email from Instagram aren't working</span> <i data-visualcompletion="css-img"
+                        class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">If you think your
+                        Instagram account has been hacked</span> <i data-visualcompletion="css-img"
+                        class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <span class="help_main_8">Email Troubleshooting</span>
+
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">What to do if the
+                        email for your Instagram account was changed</span> <i data-visualcompletion="css-img"
+                        class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">What you can do
+                        if your email address can't be found during a password reset for your <br> Instagram
+                        account</span> <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">If you didn't
+                        receive the password reset email you requested from Instagram</span> <i
+                        data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">Lost access to
+                        email or phone number linked to Instagram account</span> <i data-visualcompletion="css-img"
+                        class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">Why you're
+                        receiving a password reset email for the wrong Instagram account</span> <i
+                        data-visualcompletion="css-img" class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+
+                <span class="help_main_9">Confirming Your Identity</span>
+
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">Why you're being asked to upload an ID to Instagram</span> <i data-visualcompletion="css-img"
+                        class="x1b0d499 x1d69dk1" aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">Why you might be asked to upload a video selfie to confirm your identity on Instagram</span> <i data-visualcompletion="css-img"
+                    class="x1b0d499 x1d69dk1" aria-hidden="true"
+                    style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+            </div>
+                <span class="help_main_5">Disabled Account</span>
+
+                <div style="display: flex; justify-content: space-between;"> <span class="help_main_4">Disabled
+                        Instagram account</span> <i data-visualcompletion="css-img" class="x1b0d499 x1d69dk1"
+                        aria-hidden="true"
+                        style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/CK2PRvx7cmN.png&quot;); background-position: 0px -1526px; background-size: auto; width: 24px; height: 24px; background-repeat: no-repeat; display: inline-block; position: relative; z-index: 1; left: -8px; "></i>
+                </div>
+                <div style="margin-left: -225px; margin-top: 150px;" class="help_main_right_end">
+                    <span class="help_end_span">About Us</span>
+                    <span class="help_end_span">API</span>
+                    <span class="help_end_span">Jobs</span>
+                </div>
+                <div style="margin-left: -226px; margin-top: 46px;" class="help_main_right_end">
+                    <span class="help_end_span">Terms</span>
+                    <span class="help_end_span">Privacy</span>
+                </div>
+                <hr style="width: 800px; background-color: #737373; margin-bottom: 20px; margin-top: 43px; margin-left: -46px;"
+                    class="help_hr">
+
+                <div style="display: flex; justify-content: space-between;">
+                    <i class="help_img" style="background-image:  url({% static 'img/end_help.png'%})"></i>
+                    <span style="font-size: 20px; margin-right: -4px; display: inline-block; align-items: center;"> ©
+                        2024 Meta</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

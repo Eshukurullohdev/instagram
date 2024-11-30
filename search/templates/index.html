@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Section Instagarm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<style>
+    .search_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .search input {
+        width: 700px;
+        background-color: #dedbdb;
+        border: none;
+        height: 30px;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    .fa-magnifying-glass {
+        position: relative;
+        left: 28px;
+        color: #999;
+    }
+
+    .search a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: sans-serif;
+    }
+
+    .fa-xmark {
+        position: relative;
+        right: 28px;
+        font-size: 18px;
+        color: #999;
+        cursor: pointer;
+    }
+
+    .search_nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search_nav a {
+        margin-left: 80px;
+        margin-top: 30px;
+        text-decoration: none;
+        font-family: sans-serif;
+        color: #999;
+        font-weight: bold;
+    }
+
+    .not_strange_accaunt {
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+    }
+</style>
+
+<body>
+    <div class="search_wrapper">
+        <div class="search">
+            <form method="get">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="ism">
+                <i class="fa-solid fa-xmark"></i>
+                <a href="#">Cancel</a>
+            </form>
+        </div>
+        <div class="search_nav">
+            <a href="#">Top</a>
+            <a style="color: black; font-family: sans-serif; border-bottom: 1px solid black;" href="#">Accaunt</a>
+            <a href="#">Audio</a>
+            <a href="#">Tags</a>
+            <a href="#">Places</a>
+        </div>
+        {% for user in users %}
+        <div class="not_strange_accaunt">
+            <img style="width: 50px;
+            height: 50px; border-radius: 50%;"
+                src="{{ user.profile.avatar.url }}" alt="">
+            <div style="margin-left: 10px;">
+                <a style="text-decoration: none;color: black; font-weight: 600; font-family: sans-serif;"
+                    href="{% url 'profile' user.username %}">{{ user.username }}</a> <br>
+                <span style="opacity: 0.90; color: #999;">{{ user.fullName }}</span> <br>
+                <span style="opacity: 0.90; color: #999;">followed by boda and 10.2 M others</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

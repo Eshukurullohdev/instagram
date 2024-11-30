@@ -1,0 +1,507 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<style>
+  .reel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .Reels_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Reels_for_video {
+    width: 500px;
+    height: 650px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .fa-volume-xmark {
+    position: relative;
+    left: 396px;
+    bottom: -95px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(89, 87, 87);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .Reels_for_accaunt {
+    background-image: url(/static/img/micr.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .Reels_for_text {
+    position: relative;
+    left: 89px;
+    bottom: 143px;
+  }
+
+  .Reels_for_text div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .Reels_for_text div button {
+    width: 55px;
+    height: 32px;
+    padding: 0 6px;
+    border: 1px solid #6a6767;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    font-weight: 400;
+  }
+
+  .marquee {
+    width: 190px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: rgb(47, 45, 45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    cursor: pointer;
+  }
+
+  .Top-video {
+    width: 100px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: rgb(47, 45, 45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .Top-video i {
+    font-size: 10px;
+  }
+
+  .Reels_play_nav {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 140px;
+    right: 30px;
+  }
+
+  .Reels_play_nav svg {
+    margin-top: 30px;
+  }
+  .icons {
+    position: absolute;
+    width: 40%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+  .icons i {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+  }
+  .icons .fa-arrow-up {
+    top: 20px;
+  }
+  .icons .fa-arrow-down {
+    bottom: 80px;
+  }
+  .icons a {
+    text-decoration: none;
+    color: #fff;
+  }
+  @media (max-width: 500px) {
+    .Reels_for_video {
+        width: 275px;
+        height: 450px;
+    }
+    .Reels_for_text  {
+      position: relative;
+      left: 16px;
+      bottom: 110px;
+  }
+  .marquee {
+    margin-top: 10px;
+    width: 160px;
+    height: 25px;
+  }
+  .Top-video {
+    display: none;
+  }
+  .Reels_play_nav  {
+        top: 29px;
+        right: 3px;
+  }
+  .icons .fa-arrow-up {
+    display: none;
+  }
+  .icons .fa-arrow-down {
+    display: none;
+  }
+  .fa-volume-xmark {
+    position: relative;
+    left: 220px;
+    bottom: -47px;
+    width: 30px;
+    height: 30px;
+    padding: 18px;
+    font-size: 20px;
+  }
+  .Reels_play_nav svg path {
+    font-size: 30px;
+  }
+}
+</style>
+
+<div class="reel">
+  {% if first_reel %}
+  <div class="Reels_wrapper" style="z-index: 999999">
+    <div>
+      <i class="fa-solid fa-volume-xmark"></i>
+      <video class="Reels_for_video">
+        <source src="/static/img/video2.mp4" />
+      </video>
+      <div class="Reels_for_text">
+        <div>
+          <div class="Reels_for_accaunt"></div>
+          <span>{{ first_reel.user.username }}</span>
+          <button>Follow</button>
+        </div>
+        <p>
+          Storyga 😘 gooo ❤️ trent.. <span style="color: #6b6767">more</span>
+        </p>
+        <div>
+          <marquee
+            class="marquee"
+            behavior="scroll"
+            direction=""
+            scrollamount="3"
+            scrolldelay="65"
+            >Orginal audio marjon1m_png</marquee
+          >
+          <span class="Top-video"
+            ><i class="fa-solid fa-location-dot"></i>Top video</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="Reels_play_nav">
+      <style>
+      </style>
+      <a href="/like/add-like-reels/{{ first_reel.id }}/">
+        {% if like %}
+        <svg
+          aria-label="Like"
+          class="x1lliihq x1n2onr6 xyb1xck"
+          fill="red"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <title>Like</title>
+          <path
+            d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"
+          ></path>
+        </svg>
+        {% else %}
+        <svg
+          aria-label="Like"
+          class="x1lliihq x1n2onr6 xyb1xck"
+          fill="currentColor"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <title>Like</title>
+          <path
+            d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"
+          ></path>
+        </svg>
+        {% endif %}
+      </a>
+      <svg
+        aria-label="Comment"
+        class="x1lliihq x1n2onr6 xyb1xck"
+        fill="currentColor"
+        height="24"
+        role="img"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <title>Comment</title>
+        <path
+          d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-linejoin="round"
+          stroke-width="2"
+        ></path>
+      </svg>
+
+      <svg
+        aria-label="Share"
+        class="x1lliihq x1n2onr6 xyb1xck"
+        fill="currentColor"
+        height="24"
+        role="img"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <title>Share</title>
+        <line
+          fill="none"
+          stroke="currentColor"
+          stroke-linejoin="round"
+          stroke-width="2"
+          x1="22"
+          x2="9.218"
+          y1="3"
+          y2="10.083"
+        ></line>
+        <polygon
+          fill="none"
+          points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+          stroke="currentColor"
+          stroke-linejoin="round"
+          stroke-width="2"
+        ></polygon>
+      </svg>
+
+      <svg
+        aria-label="Save"
+        class="x1lliihq x1n2onr6 x5n08af"
+        fill="currentColor"
+        height="24"
+        role="img"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <title>Save</title>
+        <polygon
+          fill="none"
+          points="20 21 12 13.44 4 21 4 3 20 3 20 21"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        ></polygon>
+      </svg>
+
+      <svg
+        aria-label="More"
+        class="x1lliihq x1n2onr6 xyb1xck"
+        fill="currentColor"
+        height="24"
+        role="img"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <title>More</title>
+        <circle cx="12" cy="12" r="1.5"></circle>
+        <circle cx="6" cy="12" r="1.5"></circle>
+        <circle cx="18" cy="12" r="1.5"></circle>
+      </svg>
+
+      <div
+        style="border-radius: 0px; width: 25px; height: 25px; margin-top: 30px"
+        class="Reels_for_accaunt"
+      ></div>
+    </div>
+  </div>
+  {% else %} {% if right_r %}
+  <div class="Reels_wrapper">
+    <div>
+      <i class="fa-solid fa-volume-xmark"></i>
+      <video class="Reels_for_video">
+        <source src="/static/img/video2.mp4" />
+      </video>
+      <div class="Reels_for_text">
+        <div>
+          <div class="Reels_for_accaunt"></div>
+          <span>{{ right_r.user.username }}</span>
+          <button>Follow</button>
+        </div>
+        <p>
+          Storyga 😘 gooo ❤️ trent.. <span style="color: #6b6767">more</span>
+        </p>
+        <div>
+          <marquee
+            class="marquee"
+            behavior="scroll"
+            direction=""
+            scrollamount="3"
+            scrolldelay="65"
+            >Orginal audio marjon1m_png</marquee
+          >
+          <span class="Top-video"
+            ><i class="fa-solid fa-location-dot"></i>Top video</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="Reels_play_nav">
+      <a href="/like/add-like-reels/{{ right_r.id }}/">
+        <svg
+          aria-label="Like"
+          class="x1lliihq x1n2onr6 xyb1xck"
+          fill="currentColor"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <title>Like</title>
+          <path
+            d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"
+          ></path>
+        </svg>
+      </a>
+      <svg
+        aria-label="Comment"
+        class="x1lliihq x1n2onr6 xyb1xck"
+        fill="currentColor"
+        height="24"
+        role="img"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <title>Comment</title>
+        <path
+          d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-linejoin="round"
+          stroke-width="2"
+        ></path>
+      </svg>
+
+      <svg
+        aria-label="Share"
+        class="x1lliihq x1n2onr6 xyb1xck"
+        fill="currentColor"
+        height="24"
+        role="img"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <title>Share</title>
+        <line
+          fill="none"
+          stroke="currentColor"
+          stroke-linejoin="round"
+          stroke-width="2"
+          x1="22"
+          x2="9.218"
+          y1="3"
+          y2="10.083"
+        ></line>
+        <polygon
+          fill="none"
+          points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+          stroke="currentColor"
+          stroke-linejoin="round"
+          stroke-width="2"
+        ></polygon>
+      </svg>
+
+      <svg
+        aria-label="Save"
+        class="x1lliihq x1n2onr6 x5n08af"
+        fill="currentColor"
+        height="24"
+        role="img"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <title>Save</title>
+        <polygon
+          fill="none"
+          points="20 21 12 13.44 4 21 4 3 20 3 20 21"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        ></polygon>
+      </svg>
+
+      <svg
+        aria-label="More"
+        class="x1lliihq x1n2onr6 xyb1xck"
+        fill="currentColor"
+        height="24"
+        role="img"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <title>More</title>
+        <circle cx="12" cy="12" r="1.5"></circle>
+        <circle cx="6" cy="12" r="1.5"></circle>
+        <circle cx="18" cy="12" r="1.5"></circle>
+      </svg>
+
+      <div
+        style="border-radius: 0px; width: 25px; height: 25px; margin-top: 30px"
+        class="Reels_for_accaunt"
+      ></div>
+    </div>
+  </div>
+  {% endif %} {% endif %} {{ right_r }}
+
+  <div class="icons">
+    {% if left_r is None %}
+    <a>
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+    {% else %}
+    <a href="/reels/{{ left_r.unique_id }}">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+    {% endif %} {% if right_r is None %}
+    <a>
+      <i class="fa-solid fa-arrow-down"></i>
+    </a>
+    {% else %}
+    <a href="/reels/{{ right_r.unique_id }}">
+      <i class="fa-solid fa-arrow-down"></i>
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% for s in other_reels %}
+<span class="other_reels" style="display: none">{{ s.unique_id }}</span>
+{% endfor %}
+<script src="{% static 'js/reels.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    html {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        background-color: black;
+        color: white;
+    }
+
+    .img_for {
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+
+    .user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .right {
+        margin-top: 20px;
+    }
+
+    .posts i {
+        margin-right: 10px;
+    }
+
+
+    .for_posts {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    @media (max-width: 500px) {
+        .user_profile_imgg {
+            display: none;
+        }
+        .medi_for_posts_img {
+            width: 100px;
+            height: 100px;
+            display: none !important;
+        }
+    }
+</style>
+
+{% if not user == 'None' %}
+<div class="medi_for_none">
+<div class="user">
+     <div class="img_for" style="
+    {% if request.user.profile.avatar %}
+    background-image: url({{ request.user.profile.avatar.url }});
+    {% else %}
+    background-image: url({% static 'img/insata2.jpg' %});
+    {% endif %}
+    "></div>
+    <div class="right">
+        <div style="margin-left: 75px;">
+            <div style="margin-bottom: 20px;">
+                <span style="display: inline-block; margin-right: 20px;">{{ user.username }}</span>
+                {% if user == request.user %}
+                <a style="background-color: #575353; padding: 5px; border-radius: 5px; text-decoration: none; color: white;"
+                    href="{% url 'update_profile' request.user.profile.id %}">Edit profile</a>
+                <a style="background-color: rgb(83, 79, 79); padding: 5px; border-radius: 5px; text-decoration: none; color: white; margin-left: 15px;"
+                        href="#">View archive</a>
+                {% else %}
+                {% if dost.accept == True %}
+                <a style="background-color: #575353; padding: 5px; border-radius: 5px; text-decoration: none; color: white;"
+                href="#">Following</a>
+                {% else %}
+                {% if dost.state == True %}
+                <a href="#" style="background-color: #575353; padding: 5px; border-radius: 5px; text-decoration: none; color: white;">Pending</a>
+                {% else %}
+                <a style="background-color: #575353; padding: 5px; border-radius: 5px; text-decoration: none; color: white;"
+                href="/authentication/request-friend/{{ user.id }}">Follow</a>
+                {% endif %}
+                {% endif %}
+                <a style="background-color: #575353; padding: 5px; border-radius: 5px; text-decoration: none; color: white;"
+                href="#">Message</a>
+                {% endif %}
+                <a href="/authentication/notification/" style="color: #fff;">
+                    <i style="margin-left: 10px;" class="fa-solid fa-bell"></i>
+                </a>
+            </div>
+
+            <div>
+                <span> 0 post </span>
+                <span style="margin-left: 15px;">18 followers</span>
+                <span style="margin-left: 15px;">23 following</span>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <span>{{ user.fullName }}</span> <br>
+                <span>working...</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: flex; align-items: center; margin-top: 30px;" class="add_img">
+    <div class="user_profile_imgg"
+        style="background-image: url(https://images.pexels.com/photos/5475784/pexels-photo-5475784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat; background-size: cover;border-radius: 50%; width: 77px; height: 77px; margin-left: 10px;">
+    </div>
+    <div class="user_profile_imgg"
+        style="background-image: url(https://images.pexels.com/photos/6615230/pexels-photo-6615230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat;background-size: cover;  border-radius: 50%; width: 77px; height: 77px; margin-left: 50px;">
+    </div>  
+    {% if user == request.user %}
+    <div class="user_profile_imgg" style="width: 77px; 
+    height: 77px; background-color: rgba(250, 250, 250, 0.2); border-radius: 50%; margin-left: 50px;">
+        <span style="font-size: 50px; display: flex; align-items: center; justify-content: center; ">+</span>
+    </div>
+    <a style="transform: translateY(55px) translateX(-56px); text-decoration: none;" href="#">New</a>
+    {% endif %}
+
+
+</div>
+<hr style="margin-top: 60px;">
+<div style="display: flex; align-items: center; justify-content: center; margin-top: 15px;" class="posts">
+    <span style="margin-left: 50px;"> <i class="fa-solid fa-home"></i>Posts</span>
+    <span style="margin-left: 50px;"> <i class="fa-solid fa-home"></i>Reels</span>
+    {% if user == request.user %}
+    <span style="margin-left: 50px;"> <i class="fa-solid fa-home"></i>Saved</span>
+    {% endif %}
+    <span style="margin-left: 50px;"> <i class="fa-solid fa-home"></i>Tagged</span>
+</div>
+<!-- post divi -->
+<div class="for_posts">
+    <div class="medi_for_posts_img" style="background-image: url(https://images.pexels.com/photos/5922671/pexels-photo-5922671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; width: 200px;
+    height: 200px; margin-left: 10px;"></div>
+    <div class="medi_for_posts_img" style="background-image: url(https://images.pexels.com/photos/19168400/pexels-photo-19168400/free-photo-of-a-woman-in-a-leather-dress-and-hat-posing-near-a-life-preserver.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; width: 200px;
+    height: 200px; margin-left: 10px;"></div>
+    <div class="medi_for_posts_img" style="background-image: url(https://images.pexels.com/photos/8119447/pexels-photo-8119447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; width: 200px;
+    height: 200px; margin-left: 10px;"></div>
+</div>
+{% else %}
+<div style="margin-top: 100px; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 10px;">
+    <h3>Bunday user mavjud emas</h3>
+    <h4>Ilitmos boshqa username kiriting</h4>
+</div>
+</div>
+
+<div class="media_for_block">
+    <div>
+       <h1 style="color: red;">salom</h1>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
